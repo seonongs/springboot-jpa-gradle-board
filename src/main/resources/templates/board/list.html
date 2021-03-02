@@ -1,18 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Title</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-
-</head>
 <body>
     <!-- HEADER -->
     <div th:insert="common/header.html" id="header"></div>
 
-    <a class="btn btn-primary" th:href="@{/post}">글쓰기</a>
+    <a th:href="@{/post}">글쓰기</a>
 
     <table class="table table-striped">
         <thead>
@@ -46,9 +38,9 @@
         </tbody>
     </table>
 
-    <div class="pagination">
+    <div>
         <span th:each="pageNum : ${pageList}" th:inline="text">
-            <a class="page-item" th:href="@{'/?page=' + ${pageNum}}">[[${pageNum}]]</a>
+            <a th:href="@{'/?page=' + ${pageNum}}">[[${pageNum}]]</a>
         </span>
     </div>
 
@@ -56,11 +48,11 @@
 
     <!-- 검색 form -->
     <form action="/board/search" method="GET">
-        <progress></progress>
         <div>
-            <input class="form-control" name="keyword" type="text" placeholder="검색어를 입력해주세요">
+            <input name="keyword" type="text" placeholder="검색어를 입력해주세요">
         </div>
-        <button class="btn btn-primary">검색하기</button>
+
+        <button>검색하기</button>
     </form>
 
     <!-- FOOTER -->

@@ -1,4 +1,5 @@
 spring:
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/board?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
@@ -13,6 +14,14 @@ spring:
     hibernate:
       format_sql: true
       ddl-auto: create
+
+  devtools:
+    livereload:
+      enabled: true
+  freemarker:
+    cache: false
+  thymeleaf:
+    cache: false
 
 logging:
   level:

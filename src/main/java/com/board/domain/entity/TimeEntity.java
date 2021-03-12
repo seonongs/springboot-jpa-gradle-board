@@ -1,4 +1,4 @@
-package com.victolee.board.domain.entity;
+package com.board.domain.entity;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;

@@ -1,6 +1,6 @@
-package com.victolee.board.dto;
+package com.board.dto;
 
-import com.victolee.board.domain.entity.BoardEntity;
+import com.board.domain.entity.BoardEntity;
 import lombok.*;
 
 import java.time.LocalDateTime;

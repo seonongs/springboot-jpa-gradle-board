@@ -1,8 +1,8 @@
-package com.victolee.board.service;
+package com.board.service;
 
-import com.victolee.board.domain.entity.BoardEntity;
-import com.victolee.board.domain.repository.BoardRepository;
-import com.victolee.board.dto.BoardDto;
+import com.board.dto.BoardDto;
+import com.board.domain.entity.BoardEntity;
+import com.board.domain.repository.BoardRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

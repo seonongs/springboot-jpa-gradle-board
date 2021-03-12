@@ -1,4 +1,4 @@
-package com.victolee.board;
+package com.board;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

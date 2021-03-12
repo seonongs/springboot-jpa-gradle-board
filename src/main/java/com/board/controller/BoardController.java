@@ -1,7 +1,7 @@
-package com.victolee.board.controller;
+package com.board.controller;
 
-import com.victolee.board.dto.BoardDto;
-import com.victolee.board.service.BoardService;
+import com.board.dto.BoardDto;
+import com.board.service.BoardService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

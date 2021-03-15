@@ -45,9 +45,9 @@ public class BoardController {
 
     @PostMapping("/post")
     public String write(BoardDto boardDto) {
-        boardService.savePost(boardDto);
+        Long no = boardService.savePost(boardDto);
 
-        return "redirect:/";
+        return "redirect:/post/" + no;
     }
 
 
@@ -75,6 +75,7 @@ public class BoardController {
         return "redirect:/";
     }
 
+    /* 게시글 검색 */
     @GetMapping("/board/search")
     public String search(@RequestParam(value="keyword") String keyword, Model model) {
         List<BoardDto> boardDtoList = boardService.searchPosts(keyword);

@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
 
@@ -11,8 +12,8 @@ import javax.persistence.*;
 @Getter
 @Entity
 @Table(name = "board")
+@Slf4j
 public class BoardEntity extends TimeEntity {
-
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;

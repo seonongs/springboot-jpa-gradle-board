@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>404</title>
+</head>
+<body>
+    <span th:text="${code}"></span>
+    / <span th:text="${msg}"></span>
+    / <span th:text="${#temporals.format(timestamp, 'yyyy-MM-dd HH:mm')}"></span>
+    / <span th:text="${timestamp}"></span>
+</body>
+</html>

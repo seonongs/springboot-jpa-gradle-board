@@ -4,16 +4,15 @@
     <!-- HEADER -->
     <div th:insert="common/header.html" id="header"></div>
 
-    <div style="text-align: right; margin-right: 10px;">
-        <a th:href="@{/post}" class="btn btn-primary">글쓰기</a>
-    </div>
-    <table class="table table-striped">
+    <a th:href="@{/post}" class="ui right floated secondary button" style="margin: 10px;">글쓰기</a>
+
+    <table class="ui compact table" style="margin: 10px;">
         <thead>
         <tr>
-            <th class="one wide">번호</th>
-            <th class="ten wide">글제목</th>
-            <th class="two wide">작성자</th>
-            <th class="three wide">작성일</th>
+            <th class="">번호</th>
+            <th class="">글제목</th>
+            <th class="">작성자</th>
+            <th class="">작성일</th>
         </tr>
         </thead>
 
@@ -33,7 +32,6 @@
             </td>
             <td>
                 <span th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
-
             </td>
         </tr>
         </tbody>
@@ -48,12 +46,11 @@
     <hr>
 
     <!-- 검색 form -->
-    <form action="/board/search" method="GET">
-        <div style="text-align: right; margin-right: 10px;">
+    <form action="/board/search" method="GET" style="text-align: right; margin: 10px;">
+        <div class="ui icon input">
             <input name="keyword" type="text" placeholder="검색어를 입력해주세요">
-            <button class="btn btn-primary">검색하기</button>
         </div>
-
+            <button class="ui secondary button">검색하기</button>
     </form>
 
     <!-- FOOTER -->

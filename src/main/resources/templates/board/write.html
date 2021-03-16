@@ -5,12 +5,20 @@
     <title>Title</title>
 </head>
 <body>
-    <form  action="/post" method="post">
-        제목 : <input type="text" name="title"> <br>
-        작성자 : <input type="text" name="writer"> <br>
-        <textarea name="content"></textarea><br>
+    <form  action="/post" method="post" class="navbar-form navbar-left" role="search">
+<!--        제목 : <input type="text" name="title"> <br>-->
+<!--        작성자 : <input type="text" name="writer"> <br>-->
+<!--        <textarea name="content"></textarea><br>-->
 
-        <input type="submit" value="등록">
+<!--        <input type="submit" value="등록">-->
+
+        <div class="input-group">
+            <input type="text" name="title" class="form-control" placeholder="제목" aria-describedby="basic-addon2">
+            <input type="text" name="writer" class="form-control" placeholder="작성자" aria-describedby="basic-addon2">
+            <input type="text" name="content" class="form-control" placeholder="내용" aria-describedby="basic-addon2">
+            <input type="submit" value="등록" class="form-control">
+        </div>
+
     </form>
 </body>
 </html>

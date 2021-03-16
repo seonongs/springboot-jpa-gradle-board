@@ -1,24 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+    <!-- HEADER -->
+    <div th:insert="common/header.html" id="header"></div>
+
     <form  action="/post" method="post" class="navbar-form navbar-left" role="search">
-<!--        제목 : <input type="text" name="title"> <br>-->
-<!--        작성자 : <input type="text" name="writer"> <br>-->
-<!--        <textarea name="content"></textarea><br>-->
-
-<!--        <input type="submit" value="등록">-->
-
-        <div class="input-group">
-            <input type="text" name="title" class="form-control" placeholder="제목" aria-describedby="basic-addon2">
-            <input type="text" name="writer" class="form-control" placeholder="작성자" aria-describedby="basic-addon2">
-            <input type="text" name="content" class="form-control" placeholder="내용" aria-describedby="basic-addon2">
-            <input type="submit" value="등록" class="form-control">
+        <div class="ui form">
+            <h4 class="ui dividing header">글쓰기</h4>
+            <div class="field">
+                <div class="two fields">
+                    <div class="field">
+                        <input type="text" name="title" placeholder="제목">
+                    </div>
+                    <div class="field">
+                        <input type="text" name="writer" placeholder="작성자">
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <textarea name="content" class="ui input" placeholder="내용"></textarea>
+                <input type="submit" value="등록" class="ui right floated secondary button" style="margin: 10px;">
+            </div>
         </div>
-
     </form>
+
+    <!-- FOOTER -->
+    <div th:insert="common/footer.html" id="footer"></div>
 </body>
 </html>

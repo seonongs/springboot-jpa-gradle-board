@@ -9,11 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
-import java.util.logging.Logger;
 
 @Controller
 public class ExceptionHandlingController implements ErrorController {
-//    private final Logger logger = LoggergerFactory.getLogger(this.getClass());
 
     // 에러 페이지 정의
     private final String ERROR_404_PAGE_PATH = "/error/404";
@@ -32,9 +30,6 @@ public class ExceptionHandlingController implements ErrorController {
         if (status != null) {
             // HttpStatus와 비교해 페이지 분기를 나누기 위한 변수
             int statusCode = Integer.valueOf(status.toString());
-
-            // 로그로 상태값을 기록 및 출력
-//            logger.info("httpStatus : " + statusCode);
 
             // 404 error
             if (statusCode == HttpStatus.NOT_FOUND.value()) {

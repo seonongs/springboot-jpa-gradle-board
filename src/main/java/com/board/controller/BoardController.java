@@ -62,9 +62,9 @@ public class BoardController {
 
     @PutMapping("/post/edit/{no}")
     public String update(BoardDto boardDTO) {
-        boardService.savePost(boardDTO);
+        Long no = boardService.savePost(boardDTO);
 
-        return "redirect:/";
+        return "redirect:/post/" + no;
     }
 
     /* 게시글 삭제 */

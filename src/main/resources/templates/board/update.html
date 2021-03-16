@@ -5,15 +5,32 @@
     <title>Title</title>
 </head>
 <body>
-<form th:action="@{'/post/edit/' + ${boardDto.id}}" method="post">
-    <input type="hidden" name="_method" value="put"/>
-    <input type="hidden" name="id" th:value="${boardDto.id}"/>
+    <!-- HEADER -->
+    <div th:insert="common/header.html" id="header"></div>
 
-    제목 : <input type="text" name="title" th:value="${boardDto.title}"> <br>
-    작성자 : <input type="text" name="writer" th:value="${boardDto.writer}"> <br>
-    <textarea name="content" th:text="${boardDto.content}"></textarea><br>
+    <form  th:action="@{'/post/edit/' + ${boardDto.id}}" method="post" class="navbar-form navbar-left" role="search">
+        <input type="hidden" name="_method" value="put"/>
+        <input type="hidden" name="id" th:value="${boardDto.id}"/>
+        <div class="ui form">
+            <div class="field">
+                <div class="two fields">
+                    <div class="field">
+                        <input type="text" name="title" th:value="${boardDto.title}">
+                    </div>
+                    <div class="field">
+                        <input type="text" name="writer" th:value="${boardDto.writer}">
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <textarea name="content" class="ui input" th:text="${boardDto.content}"></textarea>
+                <input type="submit" value="등록" class="ui right floated secondary button" style="margin: 10px;">
+            </div>
+        </div>
+    </form>
 
-    <input type="submit" value="수정">
-</form>
+    <!-- FOOTER -->
+    <div th:insert="common/footer.html" id="footer"></div>
+
 </body>
 </html>

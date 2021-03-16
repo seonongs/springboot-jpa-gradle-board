@@ -17,32 +17,34 @@
                 <input type="text" name="writer" th:value="${boardDto.writer}">
             </div>
             <div class="field">
-                [[${#temporals.format(boardDto.createdDate, 'yyyy-MM-dd HH:mm')}]]
+                <h1>[[${#temporals.format(boardDto.createdDate, 'yyyy-MM-dd HH:mm')}]]</h1>
             </div>
         </div>
         <div class="disabled field">
             <textarea name="content" class="ui input" th:text="${boardDto.content}"></textarea>
         </div>
-        <div>
-            <a th:href="@{'/'}">
-                <button class="ui right floated secondary button">목록</button>
-            </a>
-            <form id="delete-form" th:action="@{'/post/' + ${boardDto.id}}" method="post">
-                <input type="hidden" name="_method" value="delete" class="ui right floated secondary button"/>
-                <button id="delete-btn" class="ui right floated secondary button">삭제</button>
-            </form>
-            <a th:href="@{'/post/edit/' + ${boardDto.id}}">
-                <button class="ui right floated secondary button">수정</button>
-            </a>
-        </div>
+    </div>
+    <div style="margin: 10px;">
+        <a th:href="@{'/'}">
+            <button class="ui right floated secondary button">목록</button>
+        </a>
+        <a th:href="@{'/post/edit/' + ${boardDto.id}}">
+            <button class="ui right floated secondary button">수정</button>
+        </a>
+        <form id="delete-form" th:action="@{'/post/' + ${boardDto.id}}" method="post">
+            <input type="hidden" name="_method" value="delete" class="ui right floated secondary button"/>
+            <button id="delete-btn" class="ui right floated secondary button">삭제</button>
+        </form>
     </div>
 
-    <!-- 변수 셋팅 -->
+    <!-- boardDto setting -->
     <script th:inline="javascript">
         /*<![CDATA[*/
         const boardDto = [[${boardDto}]];
         /*]]>*/
     </script>
 
+    <!-- FOOTER -->
+    <div th:insert="common/footer.html" id="footer"></div>
 </body>
 </html>

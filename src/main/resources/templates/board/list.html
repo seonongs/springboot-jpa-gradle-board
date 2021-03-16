@@ -4,22 +4,20 @@
     <!-- HEADER -->
     <div th:insert="common/header.html" id="header"></div>
 
-    <a th:href="@{/post}" class="ui right floated secondary button" style="margin: 10px;">글쓰기</a>
-
-    <table class="ui compact table" style="margin: 10px;">
+    <table class="ui celled padded table" style="margin: 10px;">
         <thead>
         <tr>
-            <th class="">번호</th>
+            <th class="single line" style="width: 10px;">번호</th>
             <th class="">글제목</th>
-            <th class="">작성자</th>
-            <th class="">작성일</th>
+            <th class="" style="width: 10%;">작성자</th>
+            <th class="" style="width: 10%;">작성일</th>
         </tr>
         </thead>
 
         <tbody>
         <!-- CONTENTS !-->
         <tr th:each="board : ${boardList}">
-            <td>
+            <td class="ui center aligned header">
                 <span th:text="${board.id}"></span>
             </td>
             <td>
@@ -43,16 +41,20 @@
         </span>
     </div>
 
-    <hr>
-
     <!-- 검색 form -->
-    <form action="/board/search" method="GET" style="text-align: right; margin: 10px;">
-        <div class="ui icon input">
-            <input name="keyword" type="text" placeholder="검색어를 입력해주세요">
+    <div class="two fields">
+        <div class="field">
+        <a th:href="@{/post}" class="ui right floated secondary button" style="margin: 10px;">글쓰기</a>
         </div>
-            <button class="ui secondary button">검색하기</button>
-    </form>
-
+        <div class="field">
+        <form action="/board/search" method="GET" style="text-align: right; margin: 10px;">
+            <div class="ui icon input">
+                <input name="keyword" type="text" placeholder="검색어를 입력해주세요">
+            </div>
+                <button class="ui positive button">검색</button>
+        </form>
+        </div>
+    </div>
     <!-- FOOTER -->
     <div th:insert="common/footer.html" id="footer"></div>
 </body>

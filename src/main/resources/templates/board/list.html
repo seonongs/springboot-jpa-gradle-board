@@ -1,61 +1,61 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <body>
-    <!-- HEADER -->
-    <div th:insert="common/header.html" id="header"></div>
+<!-- HEADER -->
+<div th:insert="common/header.html" id="header"></div>
 
-    <table class="ui celled padded table" style="margin: 10px;">
-        <thead>
-        <tr>
-            <th class="single line" style="width: 10px;">번호</th>
-            <th class="">글제목</th>
-            <th class="" style="width: 10%;">작성자</th>
-            <th class="" style="width: 10%;">작성일</th>
-        </tr>
-        </thead>
+<table class="ui celled padded table" style="margin: 0px;">
+    <thead>
+    <tr>
+        <th class="single line" style="width: 10px;">번호</th>
+        <th class="">글제목</th>
+        <th class="" style="width: 10%;">작성자</th>
+        <th class="" style="width: 15%;">작성일</th>
+    </tr>
+    </thead>
 
-        <tbody>
-        <!-- CONTENTS !-->
-        <tr th:each="board : ${boardList}">
-            <td class="ui center aligned header">
-                <span th:text="${board.id}"></span>
-            </td>
-            <td>
-                <a th:href="@{'/post/' + ${board.id}}">
-                    <span th:text="${board.title}"></span>
-                </a>
-            </td>
-            <td>
-                <span th:text="${board.writer}"></span>
-            </td>
-            <td>
-                <span th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+    <tbody>
+    <!-- CONTENTS !-->
+    <tr th:each="board : ${boardList}">
+        <td class="ui center aligned header">
+            <span th:text="${board.id}"></span>
+        </td>
+        <td>
+            <a th:href="@{'/post/' + ${board.id}}">
+                <span th:text="${board.title}"></span>
+            </a>
+        </td>
+        <td>
+            <span th:text="${board.writer}"></span>
+        </td>
+        <td>
+            <span th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
+        </td>
+    </tr>
+    </tbody>
+</table>
 
-    <div style="text-align: center">
-        <span th:each="pageNum : ${pageList}" th:inline="text">
-            <a th:href="@{'/?page=' + ${pageNum}}">[[${pageNum}]]</a>
-        </span>
+<div style="text-align: center">
+    <span th:each="pageNum : ${pageList}" th:inline="text">
+        <a th:href="@{'/?page=' + ${pageNum}}">[[${pageNum}]]</a>
+    </span>
+</div>
+
+<!-- 검색 form -->
+<div class="two fields">
+    <div class="field">
+        <a th:href="@{/post}" class="ui right floated secondary button" style="margin: 0px;">글쓰기</a>
     </div>
-
-    <!-- 검색 form -->
-    <div class="two fields">
-        <div class="field">
-        <a th:href="@{/post}" class="ui right floated secondary button" style="margin: 10px;">글쓰기</a>
-        </div>
-        <div class="field">
-        <form action="/board/search" method="GET" style="text-align: right; margin: 10px;">
+    <div class="field">
+        <form action="/board/search" method="GET" style="text-align: right; margin: 0px;">
             <div class="ui icon input">
                 <input name="keyword" type="text" placeholder="검색어를 입력해주세요">
             </div>
-                <button class="ui positive button">검색</button>
+            <button class="ui positive button">검색</button>
         </form>
-        </div>
     </div>
-    <!-- FOOTER -->
-    <div th:insert="common/footer.html" id="footer"></div>
+</div>
+<!-- FOOTER -->
+<div th:insert="common/footer.html" id="footer"></div>
 </body>
 </html>

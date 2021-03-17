@@ -1,5 +1,0 @@
-.ui.clearing.form:after {
-    content: "";
-    display: block;
-    clear: both;
-}

@@ -5,29 +5,29 @@
     <title>Title</title>
 </head>
 <body>
-<!-- HEADER -->
-<div th:insert="common/header.html" id="header"></div>
+    <!-- HEADER -->
+    <div th:insert="common/header.html" id="header"></div>
 
-<form action="/post" method="post" class="navbar-form navbar-left" role="search">
-    <div class="ui form">
-        <div class="field">
-            <div class="two fields">
-                <div class="field">
-                    <input type="text" name="title" placeholder="제목">
-                </div>
-                <div class="field">
-                    <input type="text" name="writer" placeholder="작성자">
+    <form  action="/post" method="post" class="navbar-form navbar-left" role="search">
+        <div class="ui form">
+            <div class="field">
+                <div class="two fields">
+                    <div class="field">
+                        <input type="text" name="title" placeholder="제목">
+                    </div>
+                    <div class="field">
+                        <input type="text" name="writer" placeholder="작성자">
+                    </div>
                 </div>
             </div>
+            <div class="field">
+                <textarea name="content" class="ui input" placeholder="내용"></textarea>
+                <input type="submit" value="등록" class="ui right floated secondary button" style="margin: 10px;">
+            </div>
         </div>
-        <div class="field">
-            <textarea name="content" class="ui input" placeholder="내용"></textarea>
-            <input type="submit" value="등록" class="ui right floated secondary button" style="margin: 0px;">
-        </div>
-    </div>
-</form>
+    </form>
 
-<!-- FOOTER -->
-<div th:insert="common/footer.html" id="footer"></div>
+    <!-- FOOTER -->
+    <div th:insert="common/footer.html" id="footer"></div>
 </body>
 </html>

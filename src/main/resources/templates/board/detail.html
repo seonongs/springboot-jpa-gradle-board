@@ -5,46 +5,46 @@
     <title>Title</title>
 </head>
 <body>
-<!-- HEADER -->
-<div th:insert="common/header.html" id="header"></div>
+    <!-- HEADER -->
+    <div th:insert="common/header.html" id="header"></div>
 
-<div class="ui form">
-    <div class="disabled three fields">
-        <div class="field">
-            <input type="text" name="title" th:value="${boardDto.title}">
+    <div class="ui form">
+        <div class="disabled three fields">
+            <div class="field">
+                <input type="text" name="title" th:value="${boardDto.title}">
+            </div>
+            <div class="field">
+                <input type="text" name="writer" th:value="${boardDto.writer}">
+            </div>
+            <div class="field">
+                <h1>[[${#temporals.format(boardDto.createdDate, 'yyyy-MM-dd HH:mm')}]]</h1>
+            </div>
         </div>
-        <div class="field">
-            <input type="text" name="writer" th:value="${boardDto.writer}">
-        </div>
-        <div class="field">
-            <h1>[[${#temporals.format(boardDto.createdDate, 'yyyy-MM-dd HH:mm')}]]</h1>
+        <div class="disabled field">
+            <textarea name="content" class="ui input" th:text="${boardDto.content}"></textarea>
         </div>
     </div>
-    <div class="disabled field">
-        <textarea name="content" class="ui input" th:text="${boardDto.content}"></textarea>
+    <div style="margin: 10px;">
+        <a th:href="@{'/'}">
+            <button class="ui right floated secondary button">목록</button>
+        </a>
+        <a th:href="@{'/post/edit/' + ${boardDto.id}}">
+            <button class="ui right floated secondary button">수정</button>
+        </a>
+        <form id="delete-form" th:action="@{'/post/' + ${boardDto.id}}" method="post">
+            <input type="hidden" name="_method" value="delete" class="ui right floated secondary button"/>
+            <button id="delete-btn" class="ui right floated secondary button">삭제</button>
+        </form>
     </div>
-</div>
-<div class="ui clearing form">
-    <a th:href="@{'/'}">
-        <button class="ui right floated red button">목록</button>
-    </a>
-    <a th:href="@{'/post/edit/' + ${boardDto.id}}">
-        <button class="ui right floated secondary button">수정</button>
-    </a>
-    <form id="delete-form" th:action="@{'/post/' + ${boardDto.id}}" method="post">
-        <input type="hidden" name="_method" value="delete"/>
-        <button id="delete-btn" class="ui right floated secondary button">삭제</button>
-    </form>
-</div>
 
-<!-- boardDto setting -->
-<script th:inline="javascript">
-    /*<![CDATA[*/
-    const boardDto = [[${boardDto}]];
-    /*]]>*/
-</script>
+    <!-- boardDto setting -->
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        const boardDto = [[${boardDto}]];
+        /*]]>*/
+    </script>
 
-<!-- FOOTER -->
-<div th:insert="common/footer.html" id="footer"></div>
+    <!-- FOOTER -->
+    <div th:insert="common/footer.html" id="footer"></div>
 </body>
 </html>

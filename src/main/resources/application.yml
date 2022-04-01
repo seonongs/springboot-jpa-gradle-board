@@ -9,9 +9,14 @@ server:
 spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://192.168.0.4:3306/board?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: maria
-    password: maria
+#    url: jdbc:mariadb://192.168.0.4:3306/board?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+#    username: maria
+#    password: maria
+
+    url: jdbc:mariadb://112.217.238.122:3306/kshdb?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: KSH
+    password: KSH
+
 
 # http://119.203.225.10:8080
 

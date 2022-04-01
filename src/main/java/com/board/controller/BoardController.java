@@ -17,13 +17,13 @@ public class BoardController {
     /* 게시글 목록 */
     @GetMapping("/")
     public String list(Model model, @RequestParam(value="page", defaultValue = "1") Integer pageNum) {
-        List<BoardDto> boardList = boardService.getBoardlist(pageNum);
+        List<BoardDto> boardList = boardService.getBoardList(pageNum);
         Integer[] pageList = boardService.getPageList(pageNum);
 
         model.addAttribute("boardList", boardList);
         model.addAttribute("pageList", pageList);
 
-        return "board/list.html";
+        return "board/list";
     }
 
 
@@ -33,14 +33,14 @@ public class BoardController {
         BoardDto boardDTO = boardService.getPost(no);
 
         model.addAttribute("boardDto", boardDTO);
-        return "board/detail.html";
+        return "board/detail";
     }
 
 
     /* 게시글 쓰기 */
     @GetMapping("/post")
     public String write() {
-        return "board/write.html";
+        return "board/write";
     }
 
     @PostMapping("/post")
@@ -57,7 +57,7 @@ public class BoardController {
         BoardDto boardDTO = boardService.getPost(no);
 
         model.addAttribute("boardDto", boardDTO);
-        return "board/update.html";
+        return "board/update";
     }
 
     @PutMapping("/post/edit/{no}")
@@ -77,11 +77,18 @@ public class BoardController {
 
     /* 게시글 검색 */
     @GetMapping("/board/search")
-    public String search(@RequestParam(value="keyword") String keyword, Model model) {
-        List<BoardDto> boardDtoList = boardService.searchPosts(keyword);
+    public String search(@RequestParam(value="keyword") String keyword
+            , @RequestParam(value="page", defaultValue = "1") Integer pageNum
+            , Model model) {
 
+        Integer[] pageList = boardService.getPageList(pageNum);
+        model.addAttribute("pageList", pageList);
+
+        List<BoardDto> boardDtoList = boardService.searchPosts(keyword);
         model.addAttribute("boardList", boardDtoList);
 
-        return "board/list.html";
+        model.addAttribute("keywords", keyword);
+
+        return "board/list";
     }
 }

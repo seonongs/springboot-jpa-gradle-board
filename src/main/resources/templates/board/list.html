@@ -49,7 +49,9 @@
         <div class="field">
         <form action="/board/search" method="GET" style="text-align: right; margin: 10px;">
             <div class="ui icon input">
-                <input name="keyword" type="text" placeholder="검색어를 입력해주세요" th:value="${keywords}">
+                <label>
+                    <input name="keyword" type="text" placeholder="검색어를 입력해주세요" th:value="${keywords}">
+                </label>
             </div>
                 <button class="ui positive button">검색</button>
         </form>

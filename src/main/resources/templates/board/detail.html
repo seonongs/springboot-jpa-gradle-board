@@ -11,17 +11,23 @@
     <div class="ui form">
         <div class="disabled three fields">
             <div class="field">
-                <input type="text" name="title" th:value="${boardDto.title}">
+                <label>
+                    <input type="text" name="title" th:value="${boardDto.title}">
+                </label>
             </div>
             <div class="field">
-                <input type="text" name="writer" th:value="${boardDto.writer}">
+                <label>
+                    <input type="text" name="writer" th:value="${boardDto.writer}">
+                </label>
             </div>
             <div class="field">
                 <h1>[[${#temporals.format(boardDto.createdDate, 'yyyy-MM-dd HH:mm')}]]</h1>
             </div>
         </div>
         <div class="disabled field">
-            <textarea name="content" class="ui input" th:text="${boardDto.content}"></textarea>
+            <label>
+                <textarea name="content" class="ui input" th:text="${boardDto.content}"></textarea>
+            </label>
         </div>
     </div>
     <div style="margin: 10px;">

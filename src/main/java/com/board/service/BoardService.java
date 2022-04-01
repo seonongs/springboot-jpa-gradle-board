@@ -31,7 +31,6 @@ public class BoardService {
         for (BoardEntity boardEntity : boardEntities) {
             boardDtoList.add(this.convertEntityToDto(boardEntity));
         }
-
         return boardDtoList;
     }
 
